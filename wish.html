@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Персональное пожелание - Суровая Россия</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="snowflakes" id="snowflakes"></div>
+    
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <img src="https://avatars.mds.yandex.net/i?id=702e1f3f4a159b53553416445ab1a409_l-7575569-images-thumbs&n=13" alt="Логотип" class="logo-img">
+                <div class="header-text">
+                    <h1>Персональное пожелание</h1>
+                    <p class="subtitle">Суровая Россия - Новый Год 2026</p>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="selection.html" class="nav-link">Выбор должности</a>
+                <a href="case.html" class="nav-link">Новогодний кейс</a>
+            </nav>
+        </header>
+
+        <main>
+            <div id="wish-container" class="wish-container">
+                <div class="wish-header">
+                    <h2 id="position-title">Загрузка пожелания...</h2>
+                    <p class="wish-date">31 декабря 2025 года</p>
+                </div>
+                
+                <div class="wish-content">
+                    <div class="wish-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    
+                    <div class="wish-text" id="wish-text">
+                        Загрузка персонального новогоднего поздравления...
+                    </div>
+                    
+                    <div class="wish-signature">
+                        <p>С уважением,</p>
+                        <p class="signature">Руководство проекта "Суровая Россия"</p>
+                    </div>
+                </div>
+                
+                <div class="wish-actions">
+                    <p class="instructions">После прочтения пожелания вы можете открыть новогодний кейс</p>
+                    <button id="open-case-btn" class="cta-button" onclick="openCase()">
+                        <i class="fas fa-box-open"></i> Открыть новогодний кейс
+                    </button>
+                    <button class="secondary-btn" onclick="goBack()">
+                        <i class="fas fa-arrow-left"></i> Вернуться к выбору должности
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="https://avatars.mds.yandex.net/i?id=702e1f3f4a159b53553416445ab1a409_l-7575569-images-thumbs&n=13" alt="Логотип" class="footer-logo-img">
+                    <span>Суровая Россия</span>
+                </div>
+                <div class="footer-info">
+                    <p>Персональное новогоднее поздравление</p>
+                    <p>Проект "Суровая Россия" 2026</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const position = localStorage.getItem('selectedPosition');
+            const positionName = localStorage.getItem('selectedPositionName');
+            const wishText = localStorage.getItem('positionWish');
+            
+            if (position && positionName && wishText) {
+                document.getElementById('position-title').textContent = positionName;
+                document.getElementById('wish-text').textContent = wishText;
+            } else {
+                window.location.href = 'selection.html';
+            }
+        });
+
+        function openCase() {
+            window.location.href = 'case.html';
+        }
+
+        function goBack() {
+            window.location.href = 'selection.html';
+        }
+    </script>
+    <script src="snow.js"></script>
+</body>
+</html>
